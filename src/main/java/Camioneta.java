@@ -1,5 +1,6 @@
 package vehiculos;
 
+
 public class Camioneta extends Vehiculo {
 	private static int cantidadCamionetas = 0;
 	private boolean volco;
@@ -10,6 +11,7 @@ public class Camioneta extends Vehiculo {
 		this.setVolco(volco);
 	}
 
+	
 	public static int getCantidadCamionetas() {
 		return cantidadCamionetas;
 	}

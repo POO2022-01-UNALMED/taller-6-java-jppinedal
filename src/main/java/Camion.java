@@ -8,16 +8,14 @@ public class Camion extends Vehiculo {
 		
 		super(placa, nombre, 2, 80, precio, peso, fabricante, "4X2");
 		this.setEjes(ejes);
-		
-		
-		
+				
 	}
 
 	public static int getCantidadCamiones() {
 		return cantidadCamiones;
 	}
 
-	public static void setCantidadCamiones(int cantidadCamiones) { // 1
+	public static void setCantidadCamiones(int cantidadCamiones) {
 		Camion.cantidadCamiones = cantidadCamiones;
 	}
 

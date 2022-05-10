@@ -15,34 +15,38 @@ public class Pais {
     public static Pais paisMasVendedor(){
 
         ArrayList<Vehiculo> vehiculos = Vehiculo.getVehiculos();
-        Hashtable<String, Integer> paises_cantidad = new Hashtable<>();
+        Hashtable<String, Integer> numeroPaises = new Hashtable<>();
         String pais;
         int cantidad;
 
         for (Vehiculo vehiculo:vehiculos){
             pais = vehiculo.getFabricante().getPais().getNombre();
 
-            if (!paises_cantidad.containsKey(pais)){
-                paises_cantidad.put(pais, 1);
+            if (!numeroPaises.containsKey(pais)){
+                numeroPaises.put(pais, 1);
             }
             else {
-                int cantidad_antigua = paises_cantidad.get(pais);
+                int cantidad_antigua = numeroPaises.get(pais);
                 cantidad_antigua++;
-                paises_cantidad.put(pais, cantidad_antigua);
+                numeroPaises.put(pais, cantidad_antigua);
             }
         }
 
-        int cantidad_mayor = paises_cantidad.get(vehiculos.get(0).getFabricante().getPais().getNombre());
-        String pais_mayor = vehiculos.get(0).getFabricante().getPais().getNombre();
+        int mayor = numeroPaises.get(vehiculos.get(0).getFabricante().getPais().getNombre());
+        String cMayorPais = vehiculos.get(0).getFabricante().getPais().getNombre();
         
-        for (String p : paises_cantidad.keySet()){
-            if (paises_cantidad.get(p) > cantidad_mayor){
-                cantidad_mayor = paises_cantidad.get(p);
-                pais_mayor = p;
+        for (String i : numeroPaises.keySet()){
+        	
+            if (numeroPaises.get(i) > mayor){
+                mayor = numeroPaises.get(i);
+                cMayorPais = i;
             }
         }
-        return new Pais(pais_mayor);
+        
+        return new Pais(cMayorPais);
     }
+    
+    
 
     public String getNombre() {
         return nombre;

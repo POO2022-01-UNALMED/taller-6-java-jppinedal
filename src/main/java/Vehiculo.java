@@ -4,8 +4,6 @@ import java.util.ArrayList;
 
 public class Vehiculo {
 
-    private static ArrayList<Vehiculo> vehiculos = new ArrayList<>();
-    protected static int cantidadVehiculos = 0;
     private String placa;
     private int puertas;
     private int velocidadMaxima;
@@ -14,40 +12,29 @@ public class Vehiculo {
     private int peso;
     private String traccion;
     private Fabricante fabricante;
+    private static ArrayList<Vehiculo> vehiculos = new ArrayList<>();
+    protected static int cantidadVehiculos = 0;
 
     public Vehiculo(String placa, String nombre, int puertas, int velocidadMaxima, int precio, int peso, Fabricante fabricante, String traccion) {
 
-        this.puertas = puertas;
+    	this.placa = placa;
+    	this.nombre = nombre;
+    	this.puertas = puertas;
         this.velocidadMaxima = velocidadMaxima;
-        this.traccion = traccion;
-        this.placa = placa;
-        this.nombre = nombre;
         this.precio = precio;
         this.peso = peso;
         this.fabricante = fabricante;
+        this.traccion = traccion;       
         cantidadVehiculos++;
         vehiculos.add(this);
-
     }
 
     public Vehiculo(String placa, int puertas, int velociadadMaxima, String nombre, int precio, int peso, String traccion, Fabricante fabricante){
 
-        this.placa = placa;
-        this.nombre = nombre;
-        this.puertas = puertas;
-        this.velocidadMaxima = velocidadMaxima;
-        this.precio = precio;
-        this.peso = peso;
-        this.fabricante = fabricante;
-        this.traccion = traccion;
+        this(placa, nombre, puertas, velociadadMaxima, precio, peso, fabricante, traccion);
         cantidadVehiculos++;
+        vehiculos.add(this);
 
-    }
-
-    public String vehiculosPorTipo(){
-        return  "Automoviles: " + Automovil.getCantidadAutomoviles() +
-                "\nCamionetas: " + Camioneta.getCantidadCamionetas() +
-                "\nCamiones: " + Camion.getCantidadCamiones();
     }
 
     public static ArrayList<Vehiculo> getVehiculos() {
@@ -124,5 +111,10 @@ public class Vehiculo {
 
     public void setFabricante(Fabricante fabricante) {
         this.fabricante = fabricante;
+    }
+    public String vehiculosPorTipo(){
+        return  "Automoviles: " + Automovil.getCantidadAutomoviles() +
+                "\nCamionetas: " + Camioneta.getCantidadCamionetas() +
+                "\nCamiones: " + Camion.getCantidadCamiones();
     }
 }

@@ -4,47 +4,53 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 
 public class Fabricante {
-
     private String nombre;
     private Pais pais;
 
     public Fabricante(String nombre, Pais pais){
-
+    	
             this.nombre = nombre;
             this.pais = pais;
-
     }
 
     public static Fabricante fabricaMayorVentas() {
+    	
         ArrayList<Vehiculo> vehiculos = Vehiculo.getVehiculos();
-        Hashtable<String, Integer> fabricantes_cantidad = new Hashtable<>();
+        Hashtable<String, Integer> numFabricantes = new Hashtable<>();
         String fabricante;
         int cantidad;
 
+        
         for (Vehiculo vehiculo:vehiculos){
+        	
             fabricante = vehiculo.getFabricante().getNombre();
 
-            if (!fabricantes_cantidad.containsKey(fabricante)){
-                fabricantes_cantidad.put(fabricante, 1);
+            if (!numFabricantes.containsKey(fabricante)){
+                numFabricantes.put(fabricante, 1);
             }
             else {
-                int cantidad_antigua = fabricantes_cantidad.get(fabricante);
-                cantidad_antigua++;
-                fabricantes_cantidad.put(fabricante, cantidad_antigua);
+                int cantFabricantesAnt = numFabricantes.get(fabricante);
+                cantFabricantesAnt++;
+                numFabricantes.put(fabricante, cantFabricantesAnt);
             }
+            
         }
 
-        int cantidad_mayor = fabricantes_cantidad.get(vehiculos.get(0).getFabricante().getNombre());
-        String fabricante_mayor = vehiculos.get(0).getFabricante().getNombre();
-        for (String p : fabricantes_cantidad.keySet()){
-            if (fabricantes_cantidad.get(p) > cantidad_mayor){
-                cantidad_mayor = fabricantes_cantidad.get(p);
-                fabricante_mayor = p;
+        int mayor = numFabricantes.get(vehiculos.get(0).getFabricante().getNombre());
+        String cMayorFabricante = vehiculos.get(0).getFabricante().getNombre();
+        
+        for (String i : numFabricantes.keySet()){
+        	
+            if (numFabricantes.get(i) > mayor){
+                mayor = numFabricantes.get(i);
+                cMayorFabricante = i;
             }
         }
-        return new Fabricante(fabricante_mayor, null);
+        
+        return new Fabricante(cMayorFabricante, null);
     }
 
+    
     public String getNombre() {
         return nombre;
     }
