@@ -36,7 +36,6 @@ public class Fabricante {
 
         int cantidad_mayor = fabricantes_cantidad.get(vehiculos.get(0).getFabricante().getNombre());
         String fabricante_mayor = vehiculos.get(0).getFabricante().getNombre();
-        
         for (String p : fabricantes_cantidad.keySet()){
             if (fabricantes_cantidad.get(p) > cantidad_mayor){
                 cantidad_mayor = fabricantes_cantidad.get(p);
