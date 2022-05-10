@@ -32,9 +32,15 @@ public class Vehiculo {
 
     public Vehiculo(String placa, int puertas, int velociadadMaxima, String nombre, int precio, int peso, String traccion, Fabricante fabricante){
 
-        this(placa, nombre, puertas, velociadadMaxima, precio, peso, fabricante, traccion);
+        this.placa = placa;
+        this.nombre = nombre;
+        this.puertas = puertas;
+        this.velocidadMaxima = velocidadMaxima;
+        this.precio = precio;
+        this.peso = peso;
+        this.fabricante = fabricante;
+        this.traccion = traccion;
         cantidadVehiculos++;
-        vehiculos.add(this);
 
     }
 
