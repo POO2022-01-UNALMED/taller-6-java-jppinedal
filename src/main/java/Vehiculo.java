@@ -12,31 +12,31 @@ public class Vehiculo {
 	private String traccion;
 	private Fabricante fabricante; 
 	protected static int cantidadVehiculos = 0;
-	private static ArrayList<Vehiculo> vehiculos = new ArrayList();
+	private static ArrayList<Vehiculo> vehiculos = new ArrayList<>();
 	
 	public Vehiculo(String placa, int puertas, double velocidadMaxima, String nombre, int precio, int peso, String traccion, Fabricante fabricante) {
-		this.setPlaca(placa);
-		this.setPuertas(puertas);
-		this.setVelocidadMaxima(velocidadMaxima);
-		this.setNombre(nombre);
-		this.setPrecio(precio);
-		this.setPeso(peso);
-		this.setTraccion(traccion);
-		this.setFabricante(fabricante);
-		setCantidadVehiculos(getCantidadVehiculos() + 1);
+		this.placa = placa;
+		this.puertas = puertas;
+		this.velocidadMaxima = velocidadMaxima;
+		this.nombre = nombre;
+		this.precio = precio;
+		this.peso = peso;
+		this.traccion = traccion;
+		this.fabricante = fabricante;
+		cantidadVehiculos++;
 		vehiculos.add(this);
 	}
 	
 	public Vehiculo(String placa, String nombre, int puertas, int velocidadMaxima, int precio, int peso, Fabricante fabricante, String traccion) {
-		this.setPuertas(puertas);
-        this.setVelocidadMaxima(velocidadMaxima);
-        this.setTraccion(traccion);
-        this.setPlaca(placa);
-        this.setNombre(nombre);
-        this.setPrecio(precio);
-        this.setPeso(peso);
-        this.setFabricante(fabricante);
-        setCantidadVehiculos(getCantidadVehiculos() + 1);
+		this.placa = placa;
+		this.nombre = nombre;
+		this.puertas = puertas;
+		this.velocidadMaxima = velocidadMaxima;
+		this.precio = precio;
+		this.peso = peso;
+		this.fabricante = fabricante;
+		this.traccion = traccion;
+		cantidadVehiculos++;
         vehiculos.add(this);
 	}
 
